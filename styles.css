@@ -744,6 +744,30 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     border: 1px solid #e9ecef;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.certificate-link:hover {
+    background: #007bff;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
 }
 
 /* ===== TESTIMONIALS SECTION ===== */
