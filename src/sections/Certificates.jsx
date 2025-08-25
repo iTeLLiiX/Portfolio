@@ -38,7 +38,7 @@ const Certificates = () => {
       file: "assets/certificates/Ethical_Hacker_certificate_nico-merkel-online-de_76d89ea0-525a-401f-b60d-d6d712f99310.pdf"
     },
     {
-      title: "Web Development",
+      title: "Web Development Fundamentals",
       issuer: "Cisco Networking Academy",
       category: "Full-Stack Development",
       icon: "💻",

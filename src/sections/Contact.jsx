@@ -43,11 +43,11 @@ const Contact = () => {
       );
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "You message has been sent!");
+      showAlertMessage("success", "Ihre Nachricht wurde erfolgreich gesendet!");
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      showAlertMessage("danger", "Somthing went wrong!");
+      showAlertMessage("danger", "Etwas ist schiefgelaufen! Bitte versuchen Sie es erneut.");
     }
   };
   return (
