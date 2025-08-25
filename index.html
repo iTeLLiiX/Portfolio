@@ -1,142 +1,367 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webentwicklung Portfolio | Full-Stack Developer & E-Commerce Expert</title>
-    <meta name="description" content="Professionelle Webentwicklung für E-Commerce, Healthcare und Fintech. Full-Stack Developer mit 40% Conversion Rate Steigerung und React/Next.js Expertise.">
+    <title>Professional Portfolio | Full-Stack Developer & Creative Technologist</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="keywords" content="Webentwicklung, Full-Stack Developer, E-Commerce, React, Next.js, Healthcare, Fintech, Portfolio">
-    <meta name="author" content="Webentwickler Portfolio">
-    <meta property="og:title" content="Webentwicklung Portfolio | Full-Stack Developer">
-    <meta property="og:description" content="Professionelle Webentwicklung für E-Commerce, Healthcare und Fintech.">
+    <meta name="description" content="Professional portfolio showcasing innovative web development projects, creative solutions, and technical expertise in modern web technologies.">
+    <meta name="keywords" content="web developer, full-stack developer, portfolio, creative technologist, React, Node.js, modern web development">
+    <meta name="author" content="Professional Web Developer">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Professional Portfolio | Full-Stack Developer">
+    <meta property="og:description" content="Innovative web development projects and creative solutions">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://your-portfolio.com">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/1a1a1a/ffffff?text=Professional+Portfolio">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- fullPage.js CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <!-- FullPage.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">PORTFOLIO</span>
+                <div class="logo-line"></div>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">Portfolio</a>
+                <a href="#home" class="logo-link">
+                    <span class="logo-text">PORTFOLIO</span>
+                    <div class="logo-line"></div>
+                </a>
             </div>
+            
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
-                    <a href="#home" class="nav-link" id="link1">Home</a>
+                    <a href="#home" class="nav-link" data-section="home">
+                        <span class="nav-number">01</span>
+                        <span class="nav-text">Home</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#portfolio" class="nav-link" id="link2">Portfolio</a>
+                    <a href="#about" class="nav-link" data-section="about">
+                        <span class="nav-number">02</span>
+                        <span class="nav-text">About</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#services" class="nav-link" id="link3">Services</a>
+                    <a href="#portfolio" class="nav-link" data-section="portfolio">
+                        <span class="nav-number">03</span>
+                        <span class="nav-text">Portfolio</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link" id="link4">Kontakt</a>
+                    <a href="#testimonials" class="nav-link" data-section="testimonials">
+                        <span class="nav-number">04</span>
+                        <span class="nav-text">Testimonials</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-section="contact">
+                        <span class="nav-number">05</span>
+                        <span class="nav-text">Contact</span>
+                    </a>
                 </li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
             </div>
         </div>
     </nav>
 
-    <!-- fullPage Container -->
+    <!-- FullPage Container -->
     <div id="fullpage">
         <!-- Section 1: Hero -->
-        <div class="section" id="section1" data-bg="#0f0f23" data-text-color="#00ff88">
-            <div class="section-content">
-                <h1>Full-Stack Web Developer</h1>
-                <div class="line"></div>
-                <p class="subtitle">E-Commerce Performance Expert | 40% Conversion Rate Steigerung</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Projekte</span>
+        <div class="section" id="section1" data-anchor="home">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Creative</span>
+                        <span class="title-line">Developer</span>
+                    </h1>
+                    <p class="hero-subtitle">Crafting digital experiences that inspire and innovate</p>
+                    <div class="hero-description">
+                        <p>Full-stack developer specializing in modern web applications, creative solutions, and cutting-edge technologies that drive business growth.</p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">40%</span>
-                        <span class="stat-label">Conversion Steigerung</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">Client Zufriedenheit</span>
+                    <div class="hero-cta">
+                        <a href="#portfolio" class="btn btn-primary">
+                            <span class="btn-text">View Portfolio</span>
+                            <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span class="btn-text">Get In Touch</span>
+                        </a>
                     </div>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">Portfolio ansehen</a>
-                    <a href="#contact" class="btn btn-secondary">Kostenlose Beratung</a>
+                
+                <div class="hero-visual">
+                    <div class="hero-image">
+                        <img src="https://picsum.photos/600/800?random=10" alt="Professional Developer" loading="lazy">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="floating-card" data-speed="0.5">
+                            <i class="fas fa-code"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="floating-card" data-speed="0.3">
+                            <i class="fas fa-server"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="floating-card" data-speed="0.7">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span class="scroll-text">Scroll to explore</span>
+            </div>
+        </div>
+
+        <!-- Section 2: About -->
+        <div class="section" id="section2" data-anchor="about">
+            <div class="about-content">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">Passionate about creating exceptional digital experiences</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-text">
+                        <div class="about-intro">
+                            <h3>Creative Problem Solver</h3>
+                            <p>With over 8 years of experience in web development, I specialize in creating innovative solutions that combine cutting-edge technology with exceptional user experience design.</p>
+                        </div>
+                        
+                        <div class="skills-section">
+                            <h4>Technical Expertise</h4>
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                    <h5>Frontend</h5>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">React</span>
+                                        <span class="skill-tag">Vue.js</span>
+                                        <span class="skill-tag">TypeScript</span>
+                                        <span class="skill-tag">Sass</span>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h5>Backend</h5>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Node.js</span>
+                                        <span class="skill-tag">Python</span>
+                                        <span class="skill-tag">PostgreSQL</span>
+                                        <span class="skill-tag">MongoDB</span>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h5>Tools</h5>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Docker</span>
+                                        <span class="skill-tag">AWS</span>
+                                        <span class="skill-tag">Git</span>
+                                        <span class="skill-tag">Figma</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="8">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="95">0</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="15">0</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Section 2: Portfolio -->
-        <div class="section" id="section2" data-bg="#1a1a2e" data-text-color="#ff6b6b">
-            <div class="section-content">
-                <h1>Portfolio</h1>
-                <div class="line"></div>
-                <p class="subtitle">Ausgewählte Projekte mit messbaren Ergebnissen</p>
+        <!-- Section 3: Portfolio -->
+        <div class="section" id="section3" data-anchor="portfolio">
+            <div class="portfolio-content">
+                <div class="section-header">
+                    <h2 class="section-title">Portfolio</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">Selected projects showcasing innovation and expertise</p>
+                </div>
+                
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+                </div>
                 
                 <div class="portfolio-grid">
+                    <div class="portfolio-item" data-category="web">
+                        <div class="portfolio-image">
+                            <img src="https://picsum.photos/600/400?random=1" alt="E-Commerce Platform" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>E-Commerce Platform</h3>
+                                    <p>Modern React-based e-commerce solution with advanced features</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">Stripe</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <span>View Project</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="mobile">
+                        <div class="portfolio-image">
+                            <img src="https://picsum.photos/600/400?random=2" alt="Mobile Banking App" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>Mobile Banking App</h3>
+                                    <p>Secure financial management application with biometric authentication</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React Native</span>
+                                        <span class="tech-tag">Firebase</span>
+                                        <span class="tech-tag">Biometrics</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <span>View Project</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="portfolio-item" data-category="ecommerce">
                         <div class="portfolio-image">
-                            <img src="https://picsum.photos/400/300?random=1" alt="E-Commerce Performance Optimization">
+                            <img src="https://picsum.photos/600/400?random=3" alt="Luxury Fashion Store" loading="lazy">
                             <div class="portfolio-overlay">
-                                <h3>E-Commerce Performance Optimization</h3>
-                                <p>40% Conversion Rate Steigerung</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">React</span>
-                                    <span class="tech-tag">Next.js</span>
-                                    <span class="tech-tag">PWA</span>
+                                <div class="overlay-content">
+                                    <h3>Luxury Fashion Store</h3>
+                                    <p>Premium fashion e-commerce with AR try-on features</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Next.js</span>
+                                        <span class="tech-tag">AR.js</span>
+                                        <span class="tech-tag">Shopify</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <span>View Project</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="portfolio-item" data-category="healthcare">
+                    <div class="portfolio-item" data-category="web">
                         <div class="portfolio-image">
-                            <img src="https://picsum.photos/400/300?random=2" alt="HIPAA-Compliant Patient Portal">
+                            <img src="https://picsum.photos/600/400?random=4" alt="Project Management Dashboard" loading="lazy">
                             <div class="portfolio-overlay">
-                                <h3>HIPAA-Compliant Patient Portal</h3>
-                                <p>Sichere Patientenverwaltung</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">React</span>
-                                    <span class="tech-tag">Node.js</span>
-                                    <span class="tech-tag">HIPAA</span>
+                                <div class="overlay-content">
+                                    <h3>Project Management Dashboard</h3>
+                                    <p>Real-time collaboration platform with advanced analytics</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Vue.js</span>
+                                        <span class="tech-tag">Socket.io</span>
+                                        <span class="tech-tag">D3.js</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <span>View Project</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="portfolio-item" data-category="fintech">
+                    <div class="portfolio-item" data-category="mobile">
                         <div class="portfolio-image">
-                            <img src="https://picsum.photos/400/300?random=3" alt="Secure Financial Dashboard">
+                            <img src="https://picsum.photos/600/400?random=5" alt="Fitness Tracking App" loading="lazy">
                             <div class="portfolio-overlay">
-                                <h3>Secure Financial Dashboard</h3>
-                                <p>Real-time Finanzdaten-Visualisierung</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">React</span>
-                                    <span class="tech-tag">API</span>
-                                    <span class="tech-tag">Security</span>
+                                <div class="overlay-content">
+                                    <h3>Fitness Tracking App</h3>
+                                    <p>Comprehensive health monitoring with AI-powered insights</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">TensorFlow</span>
+                                        <span class="tech-tag">HealthKit</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <span>View Project</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item" data-category="ecommerce">
+                        <div class="portfolio-image">
+                            <img src="https://picsum.photos/600/400?random=6" alt="Subscription Service Platform" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>Subscription Service Platform</h3>
+                                    <p>Scalable subscription management with automated billing</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Angular</span>
+                                        <span class="tech-tag">Stripe</span>
+                                        <span class="tech-tag">Redis</span>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <span>View Project</span>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -145,128 +370,191 @@
             </div>
         </div>
 
-        <!-- Section 3: Services -->
-        <div class="section" id="section3" data-bg="#16213e" data-text-color="#4ecdc4">
-            <div class="section-content">
-                <h1>Komplettlösungen</h1>
-                <div class="line"></div>
-                <p class="subtitle">Von der Idee bis zur Wartung - alles aus einer Hand</p>
+        <!-- Section 4: Testimonials -->
+        <div class="section" id="section4" data-anchor="testimonials">
+            <div class="testimonials-content">
+                <div class="section-header">
+                    <h2 class="section-title">Testimonials</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">What clients say about working together</p>
+                </div>
                 
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-header">
-                            <h3>Starter Package</h3>
-                            <div class="service-price">
-                                <span class="price">€5K-15K</span>
+                <div class="testimonials-slider">
+                    <div class="testimonial-item active">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Working with this developer was an absolute pleasure. The attention to detail and innovative solutions exceeded our expectations. The final product not only met but surpassed our business goals."</p>
                             </div>
-                        </div>
-                        <div class="service-features">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Responsive Website (5-10 Seiten)</li>
-                                <li><i class="fas fa-check"></i> Basic SEO Setup</li>
-                                <li><i class="fas fa-check"></i> 3 Monate Support</li>
-                                <li><i class="fas fa-check"></i> Basic Analytics</li>
-                            </ul>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://picsum.photos/80/80?random=20" alt="Sarah Johnson" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>CEO, TechStart Inc.</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="service-card featured">
-                        <div class="service-badge">Empfohlen</div>
-                        <div class="service-header">
-                            <h3>Professional Package</h3>
-                            <div class="service-price">
-                                <span class="price">€15K-35K</span>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"The level of technical expertise and creative problem-solving skills is outstanding. Our e-commerce platform saw a 40% increase in conversion rates within the first month of launch."</p>
                             </div>
-                        </div>
-                        <div class="service-features">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Custom Website mit CMS</li>
-                                <li><i class="fas fa-check"></i> Advanced SEO</li>
-                                <li><i class="fas fa-check"></i> Performance Optimization</li>
-                                <li><i class="fas fa-check"></i> 6 Monate Support</li>
-                            </ul>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://picsum.photos/80/80?random=21" alt="Michael Chen" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>Founder, FashionForward</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-header">
-                            <h3>Enterprise Package</h3>
-                            <div class="service-price">
-                                <span class="price">€35K-75K</span>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Exceptional communication and project management skills. The development process was smooth, transparent, and delivered on time. Highly recommend for any complex web development project."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://picsum.photos/80/80?random=22" alt="Emily Rodriguez" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Emily Rodriguez</h4>
+                                    <p>CTO, HealthTech Solutions</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="service-features">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Custom Web Application</li>
-                                <li><i class="fas fa-check"></i> Full SEO & Performance</li>
-                                <li><i class="fas fa-check"></i> Security Implementation</li>
-                                <li><i class="fas fa-check"></i> 12 Monate Support</li>
-                            </ul>
-                        </div>
                     </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="control-btn prev" id="prevTestimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button class="control-btn next" id="nextTestimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Section 4: Contact -->
-        <div class="section" id="section4" data-bg="#0f3460" data-text-color="#ffd93d">
-            <div class="section-content">
-                <h1>Kontakt</h1>
-                <div class="line"></div>
-                <p class="subtitle">Lassen Sie uns sprechen - kostenlose Beratung</p>
+        <!-- Section 5: Contact -->
+        <div class="section" id="section5" data-anchor="contact">
+            <div class="contact-content">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="section-line"></div>
+                    <p class="section-subtitle">Let's discuss your next project</p>
+                </div>
                 
-                <div class="contact-content">
+                <div class="contact-grid">
                     <div class="contact-info">
                         <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
                                 <h4>Email</h4>
-                                <p>kontakt@webentwickler-portfolio.de</p>
+                                <p>hello@yourportfolio.com</p>
                             </div>
                         </div>
+                        
                         <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Telefon</h4>
-                                <p>+49 (0) 30 12345678</p>
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
                             </div>
                         </div>
+                        
                         <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Standort</h4>
-                                <p>Berlin, Deutschland</p>
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>San Francisco, CA</p>
                             </div>
                         </div>
                         
                         <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Dribbble">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
                         </div>
                     </div>
                     
                     <div class="contact-form">
                         <form id="contactForm">
                             <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Name *" required>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                                <label for="name">Your Name</label>
                             </div>
+                            
                             <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Email *" required>
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                                <label for="email">Your Email</label>
                             </div>
+                            
                             <div class="form-group">
-                                <select id="service" name="service">
-                                    <option value="">Gewünschter Service</option>
-                                    <option value="starter">Starter Package</option>
-                                    <option value="professional">Professional Package</option>
-                                    <option value="enterprise">Enterprise Package</option>
-                                </select>
+                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                                <label for="subject">Subject</label>
                             </div>
+                            
                             <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Projektbeschreibung *" rows="4" required></textarea>
+                                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                                <label for="message">Your Message</label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Nachricht senden</button>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -275,9 +563,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
