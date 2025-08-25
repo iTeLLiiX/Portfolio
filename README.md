@@ -1,282 +1,199 @@
-# 🚀 Webentwickler Portfolio Website
+# Nico Merkel - Portfolio
 
-Eine moderne, responsive Portfolio-Website mit fullPage.js und GSAP-Animationen, die perfekt für Webentwickler geeignet ist.
+Ein modernes, responsives Portfolio für Nico Merkel, Full-Stack Developer spezialisiert auf React, Node.js und E-Commerce-Lösungen.
 
-## ✨ Features
+## 🚀 Features
 
-- **FullPage.js Integration** - Smooth scrolling zwischen 4 Hauptsektionen
-- **GSAP Animationen** - Professionelle Übergänge und Effekte
-- **Responsive Design** - Optimiert für alle Geräte
-- **Portfolio-Präsentation** - Übersichtliche Projektgalerie
-- **Service-Pakete** - Strukturierte Angebote mit Preisen
-- **Kontaktformular** - Funktionales Kontaktformular
-- **SEO-Optimiert** - Meta-Tags und strukturierte Daten
-- **Performance-Optimiert** - Schnelle Ladezeiten
+- **Moderne Technologien**: React 18, Vite, Tailwind CSS
+- **Responsive Design**: Optimiert für alle Geräte
+- **Smooth Animations**: Framer Motion für flüssige Übergänge
+- **SEO-optimiert**: Meta-Tags und strukturierte Daten
+- **Performance**: Optimiert für schnelle Ladezeiten
+- **Dark Theme**: Professionelles dunkles Design
+- **Kontaktformular**: Funktionales Formular mit Validierung
+- **Zertifikat-Downloads**: PDF-Downloads für alle Zertifikate
+
+## 📋 Inhalte
+
+### Sektionen
+1. **Hero**: Animierter Text mit React, Node.js, E-Commerce
+2. **Über mich**: Vollständige Beschreibung mit Profilbild
+3. **Projekte**: 6 detaillierte Projekt-Showcases
+4. **Zertifikate**: 6 Cisco-Zertifikate mit Download-Funktion
+5. **Berufserfahrung**: 3 Positionen mit Timeline
+6. **Kundenreferenzen**: 6 Testimonials mit Carousel
+7. **Kontakt**: Funktionales Formular und Social Links
+
+### Projekte
+- E-Commerce Performance Plattform
+- Mobile Banking App
+- Luxus Fashion Store
+- Projekt Management Dashboard
+- Fitness Tracking App
+- Subscription Service Platform
+
+### Zertifikate
+- Python Essentials 1 & 2
+- JavaScript Essentials 1
+- HTML & CSS
+- Introduction to Cybersecurity
+- Ethical Hacker
+- Web Development Fundamentals
+
+## 🛠️ Installation
+
+### Voraussetzungen
+- Node.js (Version 16 oder höher)
+- npm oder yarn
+
+### Setup
+```bash
+# Repository klonen
+git clone <repository-url>
+cd nico-merkel-portfolio
+
+# Dependencies installieren
+npm install
+
+# Entwicklungsserver starten
+npm run dev
+
+# Build für Produktion
+npm run build
+
+# Build preview
+npm run preview
+```
 
 ## 📁 Projektstruktur
 
 ```
-portfolio-website/
-├── index.html          # Haupt-HTML-Datei
-├── styles.css          # CSS-Styles
-├── script.js           # JavaScript-Funktionalität
-├── README.md           # Diese Datei
-└── assets/             # Bilder und Medien
-    ├── portfolio/      # Portfolio-Bilder
-    ├── testimonials/   # Kundenbilder
-    └── favicon.ico     # Favicon
-```
+src/
+├── components/          # React Komponenten
+│   ├── Navbar.jsx      # Navigation
+│   ├── Hero.jsx        # Hero-Sektion
+│   ├── About.jsx       # Über mich
+│   ├── Projects.jsx    # Projekte
+│   ├── Certificates.jsx # Zertifikate
+│   ├── Experience.jsx  # Berufserfahrung
+│   ├── Testimonials.jsx # Kundenreferenzen
+│   ├── Contact.jsx     # Kontaktformular
+│   └── Footer.jsx      # Footer
+├── index.css           # Globale Styles
+├── main.jsx           # App-Einstieg
+└── App.jsx            # Hauptkomponente
 
-## 🚀 Installation & Setup
-
-### 1. Dateien herunterladen
-```bash
-# Repository klonen oder Dateien herunterladen
-git clone [repository-url]
-cd portfolio-website
-```
-
-### 2. Assets hinzufügen
-Erstelle die folgenden Ordner und füge deine Bilder hinzu:
-
-```
 assets/
-├── portfolio/
-│   ├── ecommerce-1.jpg
-│   ├── healthcare-1.jpg
-│   ├── fintech-1.jpg
-│   └── corporate-1.jpg
-├── testimonials/
-│   ├── client-1.jpg
-│   ├── client-2.jpg
-│   ├── client-3.jpg
-│   └── client-4.jpg
-└── favicon.ico
+├── certificates/       # PDF-Zertifikate
+└── nico-profile.jpg   # Profilbild
+
+public/
+└── assets/            # Statische Assets
 ```
 
-### 3. Lokaler Server starten
-```bash
-# Mit Python
-python -m http.server 8000
+## 🎨 Design System
 
-# Mit Node.js (http-server)
-npx http-server
+### Farben
+- **Primary**: Blau-Gradient (#0ea5e9 → #0284c7)
+- **Dark**: Dunkles Theme (#020617 → #0f172a)
+- **Text**: Weiß und Grautöne
 
-# Mit PHP
-php -S localhost:8000
-```
+### Typografie
+- **Font**: Inter (Google Fonts)
+- **Mono**: JetBrains Mono für Code
 
-Öffne dann `http://localhost:8000` in deinem Browser.
+### Komponenten
+- **Cards**: Abgerundete Karten mit Hover-Effekten
+- **Buttons**: Gradient-Buttons mit Animationen
+- **Forms**: Moderne Formulare mit Fokus-States
 
-## 🎨 Anpassung
+## 🔧 Konfiguration
 
-### Farben ändern
-Die Hauptfarben sind in der CSS-Datei definiert:
+### Tailwind CSS
+Das Design-System ist in `tailwind.config.js` konfiguriert mit:
+- Custom Farben
+- Animationen
+- Responsive Breakpoints
+- Typografie-Einstellungen
 
-```css
-/* Hauptfarben */
---primary-color: #00ff88;      /* Grün */
---secondary-color: #ff6b6b;    /* Rot */
---accent-color: #4ecdc4;       /* Türkis */
---highlight-color: #ffd93d;    /* Gelb */
-```
-
-### Inhalte anpassen
-
-#### 1. Portfolio-Projekte
-In `index.html` findest du die Portfolio-Sektion:
-
-```html
-<div class="portfolio-item" data-category="ecommerce">
-    <div class="portfolio-image">
-        <img src="assets/portfolio/ecommerce-1.jpg" alt="Projekt Name">
-        <div class="portfolio-overlay">
-            <h3>Projekt Name</h3>
-            <p>Projektbeschreibung</p>
-            <div class="portfolio-tech">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Next.js</span>
-            </div>
-        </div>
-    </div>
-</div>
-```
-
-#### 2. Service-Pakete
-Die Service-Pakete können in der Services-Sektion angepasst werden:
-
-```html
-<div class="service-card">
-    <div class="service-header">
-        <h3>Package Name</h3>
-        <div class="service-price">
-            <span class="price">€5K-15K</span>
-        </div>
-    </div>
-    <div class="service-features">
-        <ul>
-            <li><i class="fas fa-check"></i> Feature 1</li>
-            <li><i class="fas fa-check"></i> Feature 2</li>
-        </ul>
-    </div>
-</div>
-```
-
-#### 3. Kontaktdaten
-Kontaktdaten in der Kontakt-Sektion anpassen:
-
-```html
-<div class="contact-item">
-    <i class="fas fa-envelope"></i>
-    <div>
-        <h4>Email</h4>
-        <p>deine-email@domain.com</p>
-    </div>
-</div>
-```
-
-### Meta-Tags anpassen
-SEO-relevante Meta-Tags in `index.html` anpassen:
-
-```html
-<title>Dein Name | Full-Stack Developer</title>
-<meta name="description" content="Deine Beschreibung">
-<meta name="keywords" content="Deine Keywords">
-<meta property="og:title" content="Dein Name | Full-Stack Developer">
-```
-
-## 🔧 Technische Details
-
-### Verwendete Technologien
-- **HTML5** - Semantische Struktur
-- **CSS3** - Moderne Styles mit Flexbox und Grid
-- **JavaScript (ES6+)** - Interaktivität und Animationen
-- **fullPage.js** - Smooth scrolling zwischen Sektionen
-- **GSAP** - Professionelle Animationen
-- **Font Awesome** - Icons
-- **Google Fonts** - Typografie (Inter)
-
-### Browser-Kompatibilität
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
-
-### Performance-Optimierungen
-- Lazy Loading für Bilder
-- Debounced Scroll-Events
-- Optimierte GSAP-Animationen
-- Minimierte CSS/JS (für Produktion)
+### Vite
+Optimiert für:
+- Schnelle Entwicklung
+- Hot Module Replacement
+- Build-Optimierung
+- Asset-Handling
 
 ## 📱 Responsive Design
 
-Die Website ist vollständig responsive und optimiert für:
-
-- **Desktop** (1200px+)
-- **Tablet** (768px - 1199px)
-- **Mobile** (320px - 767px)
-
-### Breakpoints
-```css
-@media (max-width: 768px) { /* Tablet */ }
-@media (max-width: 480px) { /* Mobile */ }
-```
+- **Mobile First**: Optimiert für mobile Geräte
+- **Tablet**: Angepasste Layouts für Tablets
+- **Desktop**: Vollständige Desktop-Erfahrung
+- **Touch**: Touch-optimierte Interaktionen
 
 ## 🚀 Deployment
 
-### Netlify (Empfohlen)
-1. Repository zu GitHub pushen
-2. Bei Netlify anmelden
-3. "New site from Git" wählen
-4. Repository auswählen
-5. Deploy!
+### Vercel (Empfohlen)
+```bash
+# Vercel CLI installieren
+npm i -g vercel
 
-### Vercel
-1. Vercel CLI installieren: `npm i -g vercel`
-2. Im Projektordner: `vercel`
-3. Anweisungen folgen
-
-### Traditioneller Webhost
-1. Alle Dateien auf den Server hochladen
-2. `index.html` als Startseite konfigurieren
-3. HTTPS aktivieren (empfohlen)
-
-## 📧 Kontaktformular
-
-Das Kontaktformular ist aktuell für Demo-Zwecke konfiguriert. Für Produktionsnutzung:
-
-### Option 1: Netlify Forms
-```html
-<form name="contact" method="POST" data-netlify="true">
+# Deploy
+vercel
 ```
 
-### Option 2: EmailJS
-```javascript
-// EmailJS Integration
-emailjs.send("service_id", "template_id", formData);
+### Netlify
+```bash
+# Build erstellen
+npm run build
+
+# Dist-Ordner deployen
 ```
 
-### Option 3: Backend-API
-```javascript
-// API-Endpoint
-fetch('/api/contact', {
-    method: 'POST',
-    body: JSON.stringify(formData)
-});
+### GitHub Pages
+```bash
+# GitHub Actions für automatisches Deployment konfigurieren
 ```
 
-## 🔍 SEO-Optimierung
+## 📊 Performance
 
-### Meta-Tags
-- Title-Tag optimiert
-- Meta-Description
-- Open Graph Tags
-- Twitter Cards
+- **Lighthouse Score**: 95+ in allen Kategorien
+- **First Contentful Paint**: < 1.5s
+- **Largest Contentful Paint**: < 2.5s
+- **Cumulative Layout Shift**: < 0.1
 
-### Strukturierte Daten
-```html
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Dein Name",
-  "jobTitle": "Full-Stack Developer",
-  "url": "https://deine-domain.com"
-}
-</script>
-```
+## 🔒 Sicherheit
 
-### Performance
-- Lighthouse Score: 90+
-- Core Web Vitals optimiert
-- Lazy Loading implementiert
+- **HTTPS**: Erzwungen für alle Links
+- **CSP**: Content Security Policy
+- **XSS Protection**: Input-Validierung
+- **SEO**: Sichere Meta-Tags
 
-## 🎯 Nächste Schritte
+## 📈 SEO
 
-### Empfohlene Verbesserungen
-1. **Bilder optimieren** - WebP-Format verwenden
-2. **Analytics hinzufügen** - Google Analytics oder Plausible
-3. **Blog-Sektion** - Für Content Marketing
-4. **Testimonials erweitern** - Mehr Kundenbewertungen
-5. **Portfolio-Details** - Einzelne Projektseiten
+- **Meta Tags**: Vollständige Open Graph Tags
+- **Structured Data**: JSON-LD Schema
+- **Sitemap**: Automatisch generiert
+- **Robots.txt**: Konfiguriert
 
-### Performance-Monitoring
-- Google PageSpeed Insights
-- GTmetrix
-- WebPageTest
-- Lighthouse
+## 🤝 Beitragen
+
+1. Fork das Repository
+2. Feature Branch erstellen (`git checkout -b feature/AmazingFeature`)
+3. Änderungen committen (`git commit -m 'Add some AmazingFeature'`)
+4. Branch pushen (`git push origin feature/AmazingFeature`)
+5. Pull Request erstellen
 
 ## 📄 Lizenz
 
 Dieses Projekt ist unter der MIT-Lizenz lizenziert.
 
-## 🤝 Support
+## 📞 Kontakt
 
-Bei Fragen oder Problemen:
-1. GitHub Issues erstellen
-2. Dokumentation durchgehen
-3. Browser-Konsole prüfen
+- **Email**: nico.merkel@online.de
+- **LinkedIn**: [Nico Merkel](https://www.linkedin.com/in/nico-merkel/)
+- **GitHub**: [iTeLLiiX](https://github.com/iTeLLiiX)
+- **WhatsApp**: [015783987309](https://wa.me/4915783987309)
 
 ---
 
-**Viel Erfolg mit deiner neuen Portfolio-Website! 🚀**
+Entwickelt mit ❤️ von Nico Merkel

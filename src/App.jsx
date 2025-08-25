@@ -1,28 +1,64 @@
-import React from "react";
-import Navbar from "./sections/navbar";
-import Hero from "./sections/Hero";
-import About from "./sections/About";
-import Projects from "./sections/Projects";
-import Certificates from "./sections/Certificates";
-import Experiences from "./sections/Experiences";
-import Testimonial from "./sections/Testimonial";
-import Contact from "./sections/Contact";
-import Footer from './sections/Footer';
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import About from './components/About'
+import Projects from './components/Projects'
+import Certificates from './components/Certificates'
+import Experience from './components/Experience'
+import Testimonials from './components/Testimonials'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
-const App = () => {
+function App() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-dark-950 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <h2 className="text-xl font-semibold text-white">Nico Merkel</h2>
+          <p className="text-dark-400">Loading Portfolio...</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className="container mx-auto max-w-7xl">
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Certificates />
-      <Experiences />
-      <Testimonial />
-      <Contact />
-      <Footer/>
+    <div className="min-h-screen bg-dark-950">
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Navbar />
+          
+          <main>
+            <Hero />
+            <About />
+            <Projects />
+            <Certificates />
+            <Experience />
+            <Testimonials />
+            <Contact />
+          </main>
+          
+          <Footer />
+        </motion.div>
+      </AnimatePresence>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

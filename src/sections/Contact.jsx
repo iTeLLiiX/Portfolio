@@ -34,20 +34,20 @@ const Contact = () => {
         "template_17us8im",
         {
           from_name: formData.name,
-          to_name: "Nico",
+          to_name: "Ali",
           from_email: formData.email,
-          to_email: "nico.merkel@online.de",
+          to_email: "AliSanatiDev@gmail.com",
           message: formData.message,
         },
         "pn-Bw_mS1_QQdofuV"
       );
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "Ihre Nachricht wurde erfolgreich gesendet!");
+      showAlertMessage("success", "You message has been sent!");
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      showAlertMessage("danger", "Etwas ist schiefgelaufen! Bitte versuchen Sie es erneut.");
+      showAlertMessage("danger", "Somthing went wrong!");
     }
   };
   return (
@@ -62,23 +62,23 @@ const Contact = () => {
       {showAlert && <Alert type={alertType} text={alertMessage} />}
       <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
         <div className="flex flex-col items-start w-full gap-5 mb-10">
-          <h2 className="text-heading">Lass uns sprechen</h2>
+          <h2 className="text-heading">Let's Talk</h2>
           <p className="font-normal text-neutral-400">
-            Ob Sie eine neue Website erstellen, Ihre bestehende Plattform verbessern
-            oder ein einzigartiges Projekt zum Leben erwecken möchten - ich helfe Ihnen gerne
+            Whether you're loking to build a new website, improve your existing
+            platform, or bring a unique project to life, I'm here to help
           </p>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>
           <div className="mb-5">
             <label htmlFor="name" className="feild-label">
-              Vollständiger Name
+              Full Name
             </label>
             <input
               id="name"
               name="name"
               type="text"
               className="field-input field-input-focus"
-              placeholder="Max Mustermann"
+              placeholder="John Doe"
               autoComplete="name"
               value={formData.name}
               onChange={handleChange}
@@ -87,14 +87,14 @@ const Contact = () => {
           </div>
           <div className="mb-5">
             <label htmlFor="email" className="feild-label">
-              E-Mail
+              Email
             </label>
             <input
               id="email"
               name="email"
               type="email"
               className="field-input field-input-focus"
-              placeholder="max.mustermann@email.com"
+              placeholder="JohnDoe@email.com"
               autoComplete="email"
               value={formData.email}
               onChange={handleChange}
@@ -103,7 +103,7 @@ const Contact = () => {
           </div>
           <div className="mb-5">
             <label htmlFor="message" className="feild-label">
-              Nachricht
+              Message
             </label>
             <textarea
               id="message"
@@ -111,7 +111,7 @@ const Contact = () => {
               type="text"
               rows="4"
               className="field-input field-input-focus"
-              placeholder="Teilen Sie Ihre Gedanken..."
+              placeholder="Share your thoughts..."
               autoComplete="message"
               value={formData.message}
               onChange={handleChange}
@@ -122,7 +122,7 @@ const Contact = () => {
             type="submit"
             className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation"
           >
-            {!isLoading ? "Senden" : "Wird gesendet..."}
+            {!isLoading ? "Send" : "Sending..."}
           </button>
         </form>
       </div>
