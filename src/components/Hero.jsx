@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Sparkles, Download, Mail } from 'lucide-react';
 import Canvas from './3d/Canvas';
 import InteractiveControls from './3d/InteractiveControls';
+import RippleEffect from './RippleEffect';
 
 const Hero = () => {
   const [currentWord, setCurrentWord] = useState(0);
@@ -22,7 +23,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden ripple-container">
+      <RippleEffect />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
