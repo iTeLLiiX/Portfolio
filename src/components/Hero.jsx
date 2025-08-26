@@ -213,6 +213,15 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-secondary flex items-center gap-2"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/assets/nico-merkel-cv.html';
+                link.download = 'Nico-Merkel-CV.html';
+                link.target = '_blank';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
             >
               <Download className="w-5 h-5" />
               CV herunterladen
