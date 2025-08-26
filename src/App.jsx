@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import GlassmorphismNavbar from './components/GlassmorphismNavbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'
+import InteractiveSkills from './components/InteractiveSkills'
 import AnimatedSection from './components/AnimatedSection'
 import SwiperProjects from './components/SwiperProjects'
 import Certificates from './components/Certificates'
@@ -53,7 +53,7 @@ function App() {
           <main>
             <Hero />
             <About />
-            <Skills />
+            <InteractiveSkills />
             <AnimatedSection />
             <SwiperProjects />
             <Certificates />
