@@ -4,6 +4,7 @@ import { ChevronDown, Sparkles, Download, Mail } from 'lucide-react';
 import Canvas from './3d/Canvas';
 import InteractiveControls from './3d/InteractiveControls';
 import RippleEffect from './RippleEffect';
+import AnimatedAstronaut from './AnimatedAstronaut';
 
 const Hero = () => {
   const [currentWord, setCurrentWord] = useState(0);
@@ -131,46 +132,18 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Side - 3D Astronaut */}
+        {/* Right Side - Animated Astronaut */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative h-[600px] lg:h-[700px]"
+          className="relative flex items-center justify-center"
         >
-          <Canvas controls={controls} />
-          
-          {/* Floating Elements around Astronaut */}
-          <motion.div
-            className="absolute top-1/4 left-1/4 w-6 h-6 bg-yellow-400 rounded opacity-80"
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute top-1/3 right-1/4 w-4 h-4 bg-pink-400 rounded-full opacity-80"
-            animate={{
-              y: [0, 15, 0],
-              x: [0, 10, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-          />
+          <AnimatedAstronaut />
         </motion.div>
       </div>
 
-      {/* Interactive Controls */}
-      <InteractiveControls onControlChange={setControls} />
+
 
       {/* Scroll Indicator */}
       <motion.div
