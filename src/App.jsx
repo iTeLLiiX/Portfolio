@@ -6,9 +6,9 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Certificates from './components/Certificates'
 import Experience from './components/Experience'
-
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ParallaxBackground from './components/parallaxBackground'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -35,12 +35,14 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-dark-950">
+    <div className="min-h-screen relative">
+      <ParallaxBackground />
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
+          className="relative z-10"
         >
           <Navbar />
           
@@ -50,7 +52,6 @@ function App() {
             <Projects />
             <Certificates />
             <Experience />
-
             <Contact />
           </main>
           
