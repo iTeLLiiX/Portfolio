@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Navbar from './components/Navbar'
+import GlassmorphismNavbar from './components/GlassmorphismNavbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import AnimatedSection from './components/AnimatedSection'
-import Projects from './components/Projects'
+import SwiperProjects from './components/SwiperProjects'
 import Certificates from './components/Certificates'
-import Experience from './components/Experience'
+import InteractiveTimeline from './components/InteractiveTimeline'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import WowAnimations from './components/WowAnimations'
 import ParallaxBackground from './components/parallaxBackground'
 
 function App() {
@@ -46,16 +47,17 @@ function App() {
           transition={{ duration: 0.5 }}
           className="relative z-10"
         >
-          <Navbar />
+          <WowAnimations />
+          <GlassmorphismNavbar />
           
           <main>
             <Hero />
             <About />
             <Skills />
             <AnimatedSection />
-            <Projects />
+            <SwiperProjects />
             <Certificates />
-            <Experience />
+            <InteractiveTimeline />
             <Contact />
           </main>
           
