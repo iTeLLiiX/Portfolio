@@ -72,18 +72,18 @@ const Contact = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/nico-merkel/",
-      icon: "💼"
+      url: "https://www.linkedin.com/in/nico-merkel-20044b334/",
+      icon: "/assets/socials/linkedIn.svg"
     },
     {
       name: "GitHub",
       url: "https://github.com/iTeLLiiX",
-      icon: "🐙"
+      icon: "/assets/socials/github.svg"
     },
     {
       name: "WhatsApp",
       url: "https://wa.me/4915783987309",
-      icon: "💬"
+      icon: "/assets/socials/whatsApp.svg"
     }
   ]
 
@@ -170,10 +170,14 @@ const Contact = () => {
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 bg-dark-800 rounded-lg flex items-center justify-center text-2xl hover:bg-primary-500/20 transition-colors"
+                    className="w-12 h-12 bg-dark-800 rounded-lg flex items-center justify-center hover:bg-primary-500/20 transition-colors"
                     title={social.name}
                   >
-                    {social.icon}
+                    <img 
+                      src={social.icon} 
+                      alt={social.name}
+                      className="w-6 h-6"
+                    />
                   </motion.a>
                 ))}
               </div>
