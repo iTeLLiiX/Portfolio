@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Sparkles, Download, Mail } from 'lucide-react';
 import Canvas from './3d/Canvas';
+import InteractiveControls from './3d/InteractiveControls';
 
 const Hero = () => {
   const [currentWord, setCurrentWord] = useState(0);
+  const [controls, setControls] = useState({
+    rotation: { x: 0, y: 0, z: 0 },
+    position: { x: 0, y: 0, z: 0 },
+    scale: 1,
+    animation: 'idle'
+  });
   const words = ['React', 'Node.js', 'E-Commerce'];
 
   useEffect(() => {
@@ -129,7 +136,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="relative h-[600px] lg:h-[700px]"
         >
-          <Canvas />
+          <Canvas controls={controls} />
           
           {/* Floating Elements around Astronaut */}
           <motion.div
@@ -159,6 +166,9 @@ const Hero = () => {
           />
         </motion.div>
       </div>
+
+      {/* Interactive Controls */}
+      <InteractiveControls onControlChange={setControls} />
 
       {/* Scroll Indicator */}
       <motion.div

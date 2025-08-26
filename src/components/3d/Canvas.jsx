@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Preload } from '@react-three/drei'
 import Astronaut from './Astronaut'
 
-const ComputersCanvas = () => {
+const ComputersCanvas = ({ controls }) => {
   return (
     <Canvas
       frameloop="demand"
@@ -18,7 +18,7 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Astronaut />
+        <Astronaut controls={controls} />
       </Suspense>
 
       <Preload all />
