@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nico Merkel - Full-Stack Developer CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,7 +16,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #1a202c;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f8fafc;
             min-height: 100vh;
             padding: 20px;
         }
@@ -25,16 +25,16 @@
             max-width: 210mm;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             overflow: hidden;
+            border: 1px solid #e2e8f0;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
             color: white;
-            padding: 3rem 2rem;
-            text-align: center;
+            padding: 3rem 2.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -46,37 +46,55 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
         }
 
         .header-content {
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .header-text {
+            text-align: left;
         }
 
         .name {
             font-size: 3.5rem;
-            font-weight: 800;
+            font-weight: 900;
             margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #ffffff, #f0f4ff);
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.02em;
         }
 
         .title {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
             opacity: 0.9;
+            color: #cbd5e1;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #94a3b8;
+            max-width: 600px;
         }
 
         .contact-info {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 0.75rem;
             font-size: 0.95rem;
             font-weight: 500;
         }
@@ -84,16 +102,22 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
+            border-radius: 12px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
         }
 
         .main-content {
-            padding: 3rem 2rem;
+            padding: 3rem 2.5rem;
         }
 
         .section {
@@ -101,12 +125,23 @@
         }
 
         .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 2rem;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 2rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 2px;
         }
 
         .section-title::after {
@@ -115,95 +150,111 @@
             bottom: 0;
             left: 0;
             width: 60px;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 3px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
             border-radius: 2px;
         }
 
         .experience-item, .project-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #f7fafc;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
 
         .experience-item:hover, .project-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #3b82f6;
         }
 
         .experience-header, .project-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
         .job-title, .project-title {
-            font-weight: 700;
-            color: #2d3748;
-            font-size: 1.2rem;
-            margin-bottom: 0.25rem;
+            font-weight: 800;
+            color: #1e293b;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .company, .project-tech {
-            color: #667eea;
-            font-size: 0.95rem;
+            color: #3b82f6;
+            font-size: 1rem;
             font-weight: 600;
         }
 
         .period {
-            color: #718096;
+            color: #64748b;
             font-size: 0.9rem;
-            font-weight: 500;
-            background: #edf2f7;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
+            font-weight: 600;
+            background: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            white-space: nowrap;
         }
 
         .description {
-            color: #4a5568;
+            color: #475569;
             line-height: 1.7;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
         }
 
         .project-features {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .project-features li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #4a5568;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            color: #475569;
+            font-size: 0.95rem;
         }
 
         .project-features li:before {
             content: "▸";
-            color: #667eea;
+            color: #3b82f6;
             font-weight: bold;
             position: absolute;
             left: 0;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .certificate-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
         .certificate-item {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            padding: 1.5rem;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 2rem;
+            border-radius: 16px;
             border: 1px solid #e2e8f0;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -215,115 +266,135 @@
             left: 0;
             width: 4px;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         }
 
         .certificate-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #10b981;
         }
 
         .certificate-title {
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .certificate-issuer {
-            color: #667eea;
-            font-size: 0.9rem;
+            color: #10b981;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .certificate-category {
-            color: #718096;
+            color: #64748b;
             font-size: 0.85rem;
-            font-weight: 500;
-            background: #edf2f7;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
+            font-weight: 600;
+            background: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
             display: inline-block;
         }
 
         .tech-stack {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            padding: 2rem;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
             border: 1px solid #e2e8f0;
         }
 
         .tech-stack h4 {
-            color: #2d3748;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 800;
         }
 
         .tech-categories {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
         .tech-category {
             background: white;
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 12px;
             border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .tech-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .tech-category strong {
-            color: #2d3748;
-            font-weight: 600;
+            color: #1e293b;
+            font-weight: 700;
             display: block;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
         .tech-category span {
-            color: #4a5568;
+            color: #475569;
             font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         .references {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            padding: 2rem;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
             border: 1px solid #e2e8f0;
         }
 
         .reference-item {
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
             background: white;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+            transition: all 0.2s ease;
+        }
+
+        .reference-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .reference-text {
-            color: #4a5568;
+            color: #475569;
             font-style: italic;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             line-height: 1.6;
+            font-size: 1rem;
         }
 
         .reference-author {
-            color: #2d3748;
-            font-weight: 600;
-            font-size: 0.9rem;
+            color: #1e293b;
+            font-weight: 700;
+            font-size: 0.95rem;
         }
 
         .contact-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 12px;
+            padding: 2.5rem;
+            border-radius: 16px;
             margin-top: 2rem;
         }
 
         .contact-section .section-title {
             color: white;
+        }
+
+        .contact-section .section-title::before {
+            background: white;
         }
 
         .contact-section .section-title::after {
@@ -332,19 +403,56 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
         }
 
         .contact-item-footer {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+            border-radius: 12px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .contact-item-footer:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .skills-highlight {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .skills-highlight h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         @media print {
@@ -356,21 +464,31 @@
             .cv-container {
                 box-shadow: none;
                 border-radius: 0;
+                border: none;
             }
             
             .section {
                 page-break-inside: avoid;
             }
+
+            .experience-item:hover, .project-item:hover, .certificate-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
         }
 
         @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
             .name {
                 font-size: 2.5rem;
             }
             
             .contact-info {
-                flex-direction: column;
-                gap: 1rem;
+                align-items: center;
             }
             
             .experience-header, .project-header {
@@ -385,6 +503,10 @@
             .tech-categories {
                 grid-template-columns: 1fr;
             }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -392,8 +514,15 @@
     <div class="cv-container">
         <div class="header">
             <div class="header-content">
-                <div class="name">Nico Merkel</div>
-                <div class="title">Full-Stack Developer</div>
+                <div class="header-text">
+                    <div class="name">Nico Merkel</div>
+                    <div class="title">Full-Stack Developer</div>
+                    <div class="summary">
+                        Erfahrener Full-Stack Developer mit Fokus auf moderne Webtechnologien. 
+                        Spezialisiert auf React, Node.js und E-Commerce-Lösungen. 
+                        Entwickle skalierbare Anwendungen mit bester Performance und UX.
+                    </div>
+                </div>
                 <div class="contact-info">
                     <div class="contact-item">
                         <span>📧</span>
@@ -411,16 +540,27 @@
                         <span>🔗</span>
                         <span>linkedin.com/in/nico-merkel</span>
                     </div>
+                    <div class="contact-item">
+                        <span>🐙</span>
+                        <span>github.com/iTeLLiiX</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="main-content">
-            <div class="section">
-                <h2 class="section-title">Über mich</h2>
-                <p class="description">
-                    Erfahrener Full-Stack Developer mit Fokus auf moderne Webtechnologien. Spezialisiert auf React, Node.js und E-Commerce-Lösungen. Entwickle skalierbare Anwendungen mit bester Performance und UX. Experte für mobile App-Entwicklung, Payment-Integration und moderne Technologien wie AI/ML und AR/VR.
-                </p>
+            <div class="skills-highlight">
+                <h3>Kernkompetenzen</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">React & Next.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">E-Commerce</span>
+                    <span class="skill-tag">Mobile Apps</span>
+                    <span class="skill-tag">Payment Integration</span>
+                    <span class="skill-tag">AI/ML</span>
+                    <span class="skill-tag">Cloud Services</span>
+                    <span class="skill-tag">Performance Optimization</span>
+                </div>
             </div>
 
             <div class="section">
@@ -570,35 +710,35 @@
                     <div class="tech-categories">
                         <div class="tech-category">
                             <strong>Frontend</strong>
-                            <span>React, Next.js, Vue.js, Angular, Flutter</span>
+                            <span>React, Next.js, Vue.js, Angular, Flutter, TypeScript</span>
                         </div>
                         <div class="tech-category">
                             <strong>Backend</strong>
-                            <span>Node.js, Firebase, PHP</span>
+                            <span>Node.js, Express, Firebase, PHP, Python</span>
                         </div>
                         <div class="tech-category">
                             <strong>Styling</strong>
-                            <span>Tailwind CSS, CSS3, Styled Components</span>
+                            <span>Tailwind CSS, CSS3, Styled Components, SASS</span>
                         </div>
                         <div class="tech-category">
                             <strong>Animation</strong>
-                            <span>Three.js, Framer Motion</span>
+                            <span>Three.js, Framer Motion, GSAP, Lottie</span>
                         </div>
                         <div class="tech-category">
                             <strong>Payment</strong>
-                            <span>Stripe, PayPal</span>
+                            <span>Stripe, PayPal, Apple Pay, Google Pay</span>
                         </div>
                         <div class="tech-category">
                             <strong>Database</strong>
-                            <span>MongoDB, PostgreSQL, SQLite, Redis</span>
+                            <span>MongoDB, PostgreSQL, SQLite, Redis, MySQL</span>
                         </div>
                         <div class="tech-category">
                             <strong>Cloud</strong>
-                            <span>Firebase, AWS, Azure</span>
+                            <span>Firebase, AWS, Azure, Google Cloud, Vercel</span>
                         </div>
                         <div class="tech-category">
                             <strong>Tools</strong>
-                            <span>Git, Docker, Kubernetes</span>
+                            <span>Git, Docker, Kubernetes, CI/CD, Jira</span>
                         </div>
                     </div>
                 </div>
@@ -609,13 +749,13 @@
                 <div class="references">
                     <div class="reference-item">
                         <div class="reference-text">
-                            "Die Zusammenarbeit mit Nico war ein absoluter Genuss. Die Aufmerksamkeit für Details und die innovativen Lösungen haben unsere Erwartungen übertroffen."
+                            "Die Zusammenarbeit mit Nico war ein absoluter Genuss. Die Aufmerksamkeit für Details und die innovativen Lösungen haben unsere Erwartungen übertroffen. Das Endergebnis hat nicht nur unsere Geschäftsziele erreicht, sondern übertroffen."
                         </div>
                         <div class="reference-author">— Sarah Müller, Geschäftsführerin, TechStart GmbH</div>
                     </div>
                     <div class="reference-item">
                         <div class="reference-text">
-                            "Das Niveau der technischen Expertise und der kreativen Problemlösungsfähigkeiten ist außergewöhnlich. Unsere E-Commerce-Plattform verzeichnete eine 40%ige Steigerung der Conversion-Raten."
+                            "Das Niveau der technischen Expertise und der kreativen Problemlösungsfähigkeiten ist außergewöhnlich. Unsere E-Commerce-Plattform verzeichnete eine 40%ige Steigerung der Conversion-Raten innerhalb des ersten Monats nach dem Launch."
                         </div>
                         <div class="reference-author">— Michael Schmidt, Gründer, FashionForward</div>
                     </div>
