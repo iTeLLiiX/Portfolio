@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nico Merkel - Full-Stack Developer CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,31 +15,61 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
+            color: #1a202c;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
             max-width: 210mm;
             margin: 0 auto;
-            padding: 20mm;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
         }
 
         .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
             text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 3px solid #3b82f6;
-            padding-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
         }
 
         .name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1e40af;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #ffffff, #f0f4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .title {
-            font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
         }
 
         .contact-info {
@@ -46,374 +77,572 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
-            font-size: 0.9rem;
-            color: #475569;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .main-content {
+            padding: 3rem 2rem;
         }
 
         .section {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #1e40af;
-            border-bottom: 2px solid #e2e8f0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            position: relative;
             padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
         }
 
-        .experience-item, .project-item, .certificate-item {
-            margin-bottom: 1.5rem;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .experience-item:hover, .project-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         .experience-header, .project-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .job-title, .project-title {
-            font-weight: 600;
-            color: #1e293b;
-            font-size: 1.1rem;
-        }
-
-        .company, .project-tech {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
-        .period {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
-        .description {
-            color: #475569;
-            margin-bottom: 0.5rem;
-        }
-
-        .skills-list {
-            list-style: none;
-            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .skill-tag {
-            background: #3b82f6;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .certificate-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
         }
 
-        .certificate-item {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #3b82f6;
-        }
-
-        .certificate-title {
-            font-weight: 600;
-            color: #1e293b;
+        .job-title, .project-title {
+            font-weight: 700;
+            color: #2d3748;
+            font-size: 1.2rem;
             margin-bottom: 0.25rem;
         }
 
-        .certificate-issuer {
-            color: #64748b;
-            font-size: 0.9rem;
+        .company, .project-tech {
+            color: #667eea;
+            font-size: 0.95rem;
+            font-weight: 600;
         }
 
-        .certificate-category {
-            color: #3b82f6;
-            font-size: 0.8rem;
+        .period {
+            color: #718096;
+            font-size: 0.9rem;
             font-weight: 500;
-            margin-top: 0.25rem;
+            background: #edf2f7;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+        }
+
+        .description {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
         .project-features {
             list-style: none;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
         }
 
         .project-features li {
             position: relative;
-            padding-left: 1rem;
-            margin-bottom: 0.25rem;
-            color: #475569;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
         }
 
         .project-features li:before {
-            content: "•";
-            color: #3b82f6;
+            content: "▸";
+            color: #667eea;
             font-weight: bold;
             position: absolute;
             left: 0;
+            font-size: 1.1rem;
+        }
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .certificate-item {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-title {
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .certificate-issuer {
+            color: #667eea;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-category {
+            color: #718096;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: #edf2f7;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            display: inline-block;
         }
 
         .tech-stack {
-            background: #f1f5f9;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
         }
 
         .tech-stack h4 {
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .tech-categories {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 0.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
 
         .tech-category {
-            font-size: 0.8rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
         }
 
         .tech-category strong {
-            color: #1e293b;
+            color: #2d3748;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
         .tech-category span {
-            color: #64748b;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .references {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .reference-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .reference-text {
+            color: #4a5568;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .reference-author {
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-section .section-title::after {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-item-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         @media print {
             body {
-                padding: 10mm;
+                background: white;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
             }
             
             .section {
                 page-break-inside: avoid;
             }
         }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .experience-header, .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .certificate-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-categories {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="name">Nico Merkel</div>
-        <div class="title">Full-Stack Developer</div>
-        <div class="contact-info">
-            <span>📧 nico.merkel@online.de</span>
-            <span>📱 015783987309</span>
-            <span>📍 Deutschland</span>
-            <span>🔗 linkedin.com/in/nico-merkel</span>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Über mich</h2>
-        <p class="description">
-            Erfahrener Full-Stack Developer mit Fokus auf moderne Webtechnologien. Spezialisiert auf React, Node.js und E-Commerce-Lösungen. Entwickle skalierbare Anwendungen mit bester Performance und UX. Experte für mobile App-Entwicklung, Payment-Integration und moderne Technologien wie AI/ML und AR/VR.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Berufserfahrung</h2>
-        
-        <div class="experience-item">
-            <div class="experience-header">
-                <div>
-                    <div class="job-title">Senior Web Developer</div>
-                    <div class="company">Innovation & Research</div>
-                </div>
-                <div class="period">2024 - Present</div>
-            </div>
-            <div class="description">
-                Fokus auf moderne Technologien wie AI/ML, AR/VR und Blockchain. Entwickelt skalierbare Microservices-Architekturen mit Docker und Kubernetes. Führt technische Audits und Performance-Optimierungen durch. Mentoring von Junior-Entwicklern und Wissenstransfer.
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div>
-                    <div class="job-title">Mobile App Developer</div>
-                    <div class="company">Cross-Platform Development</div>
-                </div>
-                <div class="period">2022 - 2024</div>
-            </div>
-            <div class="description">
-                Entwickelt native und Cross-Platform Mobile Apps mit React Native und Flutter. Implementiert biometrische Authentifizierung und sichere Datenübertragung. Integration mit Firebase für Echtzeit-Datenübertragung und Analytics. HealthKit und Google Fit Integration für Gesundheits-Apps. App Store und Google Play Store Optimierung.
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="experience-header">
-                <div>
-                    <div class="job-title">Full-Stack Web Developer</div>
-                    <div class="company">Freelance & Agency Projects</div>
-                </div>
-                <div class="period">2020 - 2024</div>
-            </div>
-            <div class="description">
-                Entwickelt moderne Webanwendungen mit React, Next.js und Node.js. Spezialisiert auf E-Commerce-Lösungen mit 40% Conversion-Steigerung. Implementiert sichere Payment-Gateways mit Stripe und PayPal. Erstellt responsive PWA-Anwendungen mit Offline-Funktionalität. Optimiert Performance und SEO für bessere Rankings.
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Ausgewählte Projekte</h2>
-        
-        <div class="project-item">
-            <div class="project-header">
-                <div>
-                    <div class="project-title">CraftConnect - MyHammer-ähnliche Plattform</div>
-                    <div class="project-tech">React, Node.js, MongoDB, Stripe, Socket.io</div>
-                </div>
-            </div>
-            <div class="description">
-                Eine innovative Plattform wie MyHammer - verbindet Handwerker mit Kunden für qualitativ hochwertige Dienstleistungen.
-            </div>
-            <ul class="project-features">
-                <li>React Frontend mit Node.js Backend</li>
-                <li>MongoDB für flexible Datenspeicherung</li>
-                <li>Stripe Payment Integration</li>
-                <li>Socket.io für Echtzeit-Kommunikation</li>
-                <li>Responsive Design für alle Geräte</li>
-            </ul>
-        </div>
-
-        <div class="project-item">
-            <div class="project-header">
-                <div>
-                    <div class="project-title">CodeSnap - Lern-App für alle Berufe</div>
-                    <div class="project-tech">React Native, Node.js, AI/ML, PostgreSQL, AWS</div>
-                </div>
-            </div>
-            <div class="description">
-                Revolutionäre Lern-App für alle Berufe - interaktive Kurse, KI-gestützte Lernpfade und personalisierte Inhalte.
-            </div>
-            <ul class="project-features">
-                <li>React Native für Cross-Platform Entwicklung</li>
-                <li>KI/ML für personalisierte Lernpfade</li>
-                <li>PostgreSQL für strukturierte Daten</li>
-                <li>AWS Cloud Infrastructure</li>
-                <li>Interaktive Lerninhalte</li>
-            </ul>
-        </div>
-
-        <div class="project-item">
-            <div class="project-header">
-                <div>
-                    <div class="project-title">Thomas-Scharli Facility and More</div>
-                    <div class="project-tech">WordPress, PHP, CSS3, JavaScript, SEO</div>
-                </div>
-            </div>
-            <div class="description">
-                Professionelle Unternehmenswebsite für Facility Management - moderne Präsentation mit Service-Portfolio.
-            </div>
-            <ul class="project-features">
-                <li>WordPress CMS mit Custom Themes</li>
-                <li>PHP Backend Development</li>
-                <li>Responsive CSS3 Styling</li>
-                <li>JavaScript für Interaktivität</li>
-                <li>SEO-Optimierung</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Zertifikate</h2>
-        <div class="certificate-grid">
-            <div class="certificate-item">
-                <div class="certificate-title">Python Essentials 1 & 2</div>
-                <div class="certificate-issuer">Cisco Networking Academy</div>
-                <div class="certificate-category">Python Programming</div>
-            </div>
-            <div class="certificate-item">
-                <div class="certificate-title">JavaScript Essentials 1</div>
-                <div class="certificate-issuer">Cisco Networking Academy</div>
-                <div class="certificate-category">Frontend Development</div>
-            </div>
-            <div class="certificate-item">
-                <div class="certificate-title">HTML & CSS</div>
-                <div class="certificate-issuer">Cisco Networking Academy</div>
-                <div class="certificate-category">Web Development</div>
-            </div>
-            <div class="certificate-item">
-                <div class="certificate-title">Introduction to Cybersecurity</div>
-                <div class="certificate-issuer">Cisco Networking Academy</div>
-                <div class="certificate-category">Cybersecurity</div>
-            </div>
-            <div class="certificate-item">
-                <div class="certificate-title">Ethical Hacker</div>
-                <div class="certificate-issuer">Cisco Networking Academy</div>
-                <div class="certificate-category">Security Testing</div>
-            </div>
-            <div class="certificate-item">
-                <div class="certificate-title">Web Development Fundamentals</div>
-                <div class="certificate-issuer">Cisco Networking Academy</div>
-                <div class="certificate-category">Full-Stack Development</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Technische Fähigkeiten</h2>
-        <div class="tech-stack">
-            <h4>Technologie-Stack</h4>
-            <div class="tech-categories">
-                <div class="tech-category">
-                    <strong>Frontend:</strong> <span>React, Next.js, Vue.js, Angular, Flutter</span>
-                </div>
-                <div class="tech-category">
-                    <strong>Backend:</strong> <span>Node.js, Firebase, PHP</span>
-                </div>
-                <div class="tech-category">
-                    <strong>Styling:</strong> <span>Tailwind CSS, CSS3, Styled Components</span>
-                </div>
-                <div class="tech-category">
-                    <strong>Animation:</strong> <span>Three.js, Framer Motion</span>
-                </div>
-                <div class="tech-category">
-                    <strong>Payment:</strong> <span>Stripe, PayPal</span>
-                </div>
-                <div class="tech-category">
-                    <strong>Database:</strong> <span>MongoDB, PostgreSQL, SQLite, Redis</span>
-                </div>
-                <div class="tech-category">
-                    <strong>Cloud:</strong> <span>Firebase, AWS, Azure</span>
-                </div>
-                <div class="tech-category">
-                    <strong>Tools:</strong> <span>Git, Docker, Kubernetes</span>
+    <div class="cv-container">
+        <div class="header">
+            <div class="header-content">
+                <div class="name">Nico Merkel</div>
+                <div class="title">Full-Stack Developer</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>nico.merkel@online.de</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>015783987309</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Deutschland</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🔗</span>
+                        <span>linkedin.com/in/nico-merkel</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="section">
-        <h2 class="section-title">Kundenreferenzen</h2>
-        <div class="description">
-            "Die Zusammenarbeit mit Nico war ein absoluter Genuss. Die Aufmerksamkeit für Details und die innovativen Lösungen haben unsere Erwartungen übertroffen." - <strong>Sarah Müller, Geschäftsführerin, TechStart GmbH</strong>
-        </div>
-        <div class="description" style="margin-top: 1rem;">
-            "Das Niveau der technischen Expertise und der kreativen Problemlösungsfähigkeiten ist außergewöhnlich. Unsere E-Commerce-Plattform verzeichnete eine 40%ige Steigerung der Conversion-Raten." - <strong>Michael Schmidt, Gründer, FashionForward</strong>
-        </div>
-    </div>
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Über mich</h2>
+                <p class="description">
+                    Erfahrener Full-Stack Developer mit Fokus auf moderne Webtechnologien. Spezialisiert auf React, Node.js und E-Commerce-Lösungen. Entwickle skalierbare Anwendungen mit bester Performance und UX. Experte für mobile App-Entwicklung, Payment-Integration und moderne Technologien wie AI/ML und AR/VR.
+                </p>
+            </div>
 
-    <div class="section">
-        <h2 class="section-title">Kontakt</h2>
-        <div class="contact-info" style="justify-content: flex-start; gap: 1rem;">
-            <span>📧 nico.merkel@online.de</span>
-            <span>📱 015783987309</span>
-            <span>🔗 linkedin.com/in/nico-merkel</span>
-            <span>🐙 github.com/iTeLLiiX</span>
+            <div class="section">
+                <h2 class="section-title">Berufserfahrung</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Senior Web Developer</div>
+                            <div class="company">Innovation & Research</div>
+                        </div>
+                        <div class="period">2024 - Present</div>
+                    </div>
+                    <div class="description">
+                        Fokus auf moderne Technologien wie AI/ML, AR/VR und Blockchain. Entwickelt skalierbare Microservices-Architekturen mit Docker und Kubernetes. Führt technische Audits und Performance-Optimierungen durch. Mentoring von Junior-Entwicklern und Wissenstransfer.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Mobile App Developer</div>
+                            <div class="company">Cross-Platform Development</div>
+                        </div>
+                        <div class="period">2022 - 2024</div>
+                    </div>
+                    <div class="description">
+                        Entwickelt native und Cross-Platform Mobile Apps mit React Native und Flutter. Implementiert biometrische Authentifizierung und sichere Datenübertragung. Integration mit Firebase für Echtzeit-Datenübertragung und Analytics. HealthKit und Google Fit Integration für Gesundheits-Apps. App Store und Google Play Store Optimierung.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Full-Stack Web Developer</div>
+                            <div class="company">Freelance & Agency Projects</div>
+                        </div>
+                        <div class="period">2020 - 2024</div>
+                    </div>
+                    <div class="description">
+                        Entwickelt moderne Webanwendungen mit React, Next.js und Node.js. Spezialisiert auf E-Commerce-Lösungen mit 40% Conversion-Steigerung. Implementiert sichere Payment-Gateways mit Stripe und PayPal. Erstellt responsive PWA-Anwendungen mit Offline-Funktionalität. Optimiert Performance und SEO für bessere Rankings.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Ausgewählte Projekte</h2>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">CraftConnect - MyHammer-ähnliche Plattform</div>
+                            <div class="project-tech">React, Node.js, MongoDB, Stripe, Socket.io</div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        Eine innovative Plattform wie MyHammer - verbindet Handwerker mit Kunden für qualitativ hochwertige Dienstleistungen.
+                    </div>
+                    <ul class="project-features">
+                        <li>React Frontend mit Node.js Backend</li>
+                        <li>MongoDB für flexible Datenspeicherung</li>
+                        <li>Stripe Payment Integration</li>
+                        <li>Socket.io für Echtzeit-Kommunikation</li>
+                        <li>Responsive Design für alle Geräte</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">CodeSnap - Lern-App für alle Berufe</div>
+                            <div class="project-tech">React Native, Node.js, AI/ML, PostgreSQL, AWS</div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        Revolutionäre Lern-App für alle Berufe - interaktive Kurse, KI-gestützte Lernpfade und personalisierte Inhalte.
+                    </div>
+                    <ul class="project-features">
+                        <li>React Native für Cross-Platform Entwicklung</li>
+                        <li>KI/ML für personalisierte Lernpfade</li>
+                        <li>PostgreSQL für strukturierte Daten</li>
+                        <li>AWS Cloud Infrastructure</li>
+                        <li>Interaktive Lerninhalte</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Thomas-Scharli Facility and More</div>
+                            <div class="project-tech">WordPress, PHP, CSS3, JavaScript, SEO</div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        Professionelle Unternehmenswebsite für Facility Management - moderne Präsentation mit Service-Portfolio.
+                    </div>
+                    <ul class="project-features">
+                        <li>WordPress CMS mit Custom Themes</li>
+                        <li>PHP Backend Development</li>
+                        <li>Responsive CSS3 Styling</li>
+                        <li>JavaScript für Interaktivität</li>
+                        <li>SEO-Optimierung</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Zertifikate</h2>
+                <div class="certificate-grid">
+                    <div class="certificate-item">
+                        <div class="certificate-title">Python Essentials 1 & 2</div>
+                        <div class="certificate-issuer">Cisco Networking Academy</div>
+                        <div class="certificate-category">Python Programming</div>
+                    </div>
+                    <div class="certificate-item">
+                        <div class="certificate-title">JavaScript Essentials 1</div>
+                        <div class="certificate-issuer">Cisco Networking Academy</div>
+                        <div class="certificate-category">Frontend Development</div>
+                    </div>
+                    <div class="certificate-item">
+                        <div class="certificate-title">HTML & CSS</div>
+                        <div class="certificate-issuer">Cisco Networking Academy</div>
+                        <div class="certificate-category">Web Development</div>
+                    </div>
+                    <div class="certificate-item">
+                        <div class="certificate-title">Introduction to Cybersecurity</div>
+                        <div class="certificate-issuer">Cisco Networking Academy</div>
+                        <div class="certificate-category">Cybersecurity</div>
+                    </div>
+                    <div class="certificate-item">
+                        <div class="certificate-title">Ethical Hacker</div>
+                        <div class="certificate-issuer">Cisco Networking Academy</div>
+                        <div class="certificate-category">Security Testing</div>
+                    </div>
+                    <div class="certificate-item">
+                        <div class="certificate-title">Web Development Fundamentals</div>
+                        <div class="certificate-issuer">Cisco Networking Academy</div>
+                        <div class="certificate-category">Full-Stack Development</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Technische Fähigkeiten</h2>
+                <div class="tech-stack">
+                    <h4>Technologie-Stack</h4>
+                    <div class="tech-categories">
+                        <div class="tech-category">
+                            <strong>Frontend</strong>
+                            <span>React, Next.js, Vue.js, Angular, Flutter</span>
+                        </div>
+                        <div class="tech-category">
+                            <strong>Backend</strong>
+                            <span>Node.js, Firebase, PHP</span>
+                        </div>
+                        <div class="tech-category">
+                            <strong>Styling</strong>
+                            <span>Tailwind CSS, CSS3, Styled Components</span>
+                        </div>
+                        <div class="tech-category">
+                            <strong>Animation</strong>
+                            <span>Three.js, Framer Motion</span>
+                        </div>
+                        <div class="tech-category">
+                            <strong>Payment</strong>
+                            <span>Stripe, PayPal</span>
+                        </div>
+                        <div class="tech-category">
+                            <strong>Database</strong>
+                            <span>MongoDB, PostgreSQL, SQLite, Redis</span>
+                        </div>
+                        <div class="tech-category">
+                            <strong>Cloud</strong>
+                            <span>Firebase, AWS, Azure</span>
+                        </div>
+                        <div class="tech-category">
+                            <strong>Tools</strong>
+                            <span>Git, Docker, Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Kundenreferenzen</h2>
+                <div class="references">
+                    <div class="reference-item">
+                        <div class="reference-text">
+                            "Die Zusammenarbeit mit Nico war ein absoluter Genuss. Die Aufmerksamkeit für Details und die innovativen Lösungen haben unsere Erwartungen übertroffen."
+                        </div>
+                        <div class="reference-author">— Sarah Müller, Geschäftsführerin, TechStart GmbH</div>
+                    </div>
+                    <div class="reference-item">
+                        <div class="reference-text">
+                            "Das Niveau der technischen Expertise und der kreativen Problemlösungsfähigkeiten ist außergewöhnlich. Unsere E-Commerce-Plattform verzeichnete eine 40%ige Steigerung der Conversion-Raten."
+                        </div>
+                        <div class="reference-author">— Michael Schmidt, Gründer, FashionForward</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h2 class="section-title">Kontakt</h2>
+                <div class="contact-grid">
+                    <div class="contact-item-footer">
+                        <span>📧</span>
+                        <span>nico.merkel@online.de</span>
+                    </div>
+                    <div class="contact-item-footer">
+                        <span>📱</span>
+                        <span>015783987309</span>
+                    </div>
+                    <div class="contact-item-footer">
+                        <span>🔗</span>
+                        <span>linkedin.com/in/nico-merkel</span>
+                    </div>
+                    <div class="contact-item-footer">
+                        <span>🐙</span>
+                        <span>github.com/iTeLLiiX</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
